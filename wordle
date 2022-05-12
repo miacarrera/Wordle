@@ -1,1 +1,43 @@
+from calendar import different_locale
+from random import random
+from unicodedata import numeric
+
+
+if __name__=="__main__":
+    palabras = open("listado.txt" , "r")
+    #contents = palabras.read()
+    #print(contents)
+    print(">>> FILTRANDO PALABRAS DE 5 LETRAS")
+
+    lista = []
+
+    for i in range(1290):
+        line = palabras.readline()
+        if len(line) == 6: 
+
+            lista.append(line.strip())
+
+    print(lista)
+
+    print(">>> OPERACION COMPLETADA CON EXITO")
+    print(f"SE ENCONTRARON {len(lista)} PALABRAS DE 5 LETRAS")
+
+
+
+aleatorio = random.choice(lista)
+#print(aleatorio)
+
+
+palabra = input(">>> INTRODUCIR PALABRA DE 5 LETRAS:")
+
+
+
+
+
+while palabra not in lista:
+    if palabra not in palabras: 
+        print("la palabra no existe")
+    if len(palabra) != 5:
+        print("la palabra no tiene 5 letras")
+    if palabra 
 
