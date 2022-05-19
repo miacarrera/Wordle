@@ -1,5 +1,5 @@
 from calendar import different_locale
-from random import random
+import random
 from unicodedata import numeric
 
 
@@ -39,5 +39,6 @@ while palabra not in lista:
         print("la palabra no existe")
     if len(palabra) != 5:
         print("la palabra no tiene 5 letras")
-    if palabra 
-
+    if palabra.isalpha() == False:
+        print("caracter no valido")
+    palabra = input(">>> INTRODUCIR PALABRA DE 5 LETRAS:")
