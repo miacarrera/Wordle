@@ -1,7 +1,9 @@
 from calendar import different_locale
 import random
 from unicodedata import numeric
-
+import colorama
+from colorama import Fore
+colorama.init(autoreset=True)
 
 if __name__=="__main__":
     palabras = open("listado.txt" , "r")
@@ -24,32 +26,31 @@ if __name__=="__main__":
 
 
 
-aleatorio = random.choices(lista, 1)
-print(aleatorio)
+aleatorio = random.choice(lista)
+#print(aleatorio)
 
 
 palabra = input(">>> INTRODUCIR PALABRA DE 5 LETRAS:")
 
 
+size = min(len(palabra), len(aleatorio)) 
 
-
-
-while palabra not in lista:
-    if palabra not in palabras: 
-        print("la palabra no existe")
-    if len(palabra) != 5:
-        print("la palabra no tiene 5 letras")
-    if palabra.isalpha() == False:
-        print("caracter no valido")
-
-
-size = min(len(palabra), len(aleatorio))
-
-
-for i in range(size):
-    if palabra[i] == aleatorio[i]:
-        print(i)
-
+for palabra in range(1, 7): 
+    while palabra not in lista:
+        if palabra not in palabras: 
+            print("la palabra no existe")
+        if len(palabra) != 5:
+            print("la palabra no tiene 5 letras")
+        if palabra.isalpha() == False:
+            print("caracter no valido")
+            palabra = input(">>> INTRODUCIR PALABRA DE 5 LETRAS:")
+    for i in range(size):
+        if palabra[i] == aleatorio[i]:
+            print(Fore.GREEN + palabra[i])
+        elif palabra[i] in aleatorio[i]:
+            print(Fore.YELLOW + palabra[i])
+        else :
+            print(Fore.RED + palabra[i]) 
         
 
 
@@ -60,7 +61,3 @@ for i in range(size):
 
 
 
-
-
-
-class bcolors:
