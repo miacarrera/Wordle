@@ -1,5 +1,6 @@
 from calendar import different_locale
 import random
+from tkinter import N
 from unicodedata import numeric
 import colorama
 from colorama import Fore
@@ -16,7 +17,6 @@ if __name__=="__main__":
     for i in range(1290):
         line = palabras.readline()
         if len(line) == 6: 
-
             lista.append(line.strip())
 
     print(lista)
@@ -24,40 +24,31 @@ if __name__=="__main__":
     print(">>> OPERACION COMPLETADA CON EXITO")
     print(f"SE ENCONTRARON {len(lista)} PALABRAS DE 5 LETRAS")
 
-
-
 aleatorio = random.choice(lista)
-#print(aleatorio)
-
 
 palabra = input(">>> INTRODUCIR PALABRA DE 5 LETRAS:")
 
 
 size = min(len(palabra), len(aleatorio)) 
 
-for palabra in range(1, 7): 
+for j in range(6): 
     while palabra not in lista:
-        if palabra not in palabras: 
+        if str(palabra.strip) not in palabras: 
             print("la palabra no existe")
-        if len(palabra) != 5:
+            palabra = input(">>> INTRODUCIR PALABRA DE 5 LETRAS:")
+        if len(str(palabra.strip)) != 5:
             print("la palabra no tiene 5 letras")
-        if palabra.isalpha() == False:
+            palabra = input(">>> INTRODUCIR PALABRA DE 5 LETRAS:")
+        if str(palabra.strip).isalpha() == False :
             print("caracter no valido")
             palabra = input(">>> INTRODUCIR PALABRA DE 5 LETRAS:")
     for i in range(size):
         if palabra[i] == aleatorio[i]:
-            print(Fore.GREEN + palabra[i])
-        elif palabra[i] in aleatorio[i]:
-            print(Fore.YELLOW + palabra[i])
+            print(Fore.GREEN + palabra[i], end="")
+        elif palabra[i] in aleatorio:
+            print(Fore.YELLOW + palabra[i], end="")
         else :
-            print(Fore.RED + palabra[i]) 
-        
-
-
-
-
-
-
-
+            print(Fore.RED + palabra[i], end="") 
+    palabra = input("\n>>> INTRODUCIR PALABRA DE 5 LETRAS:")
 
 
