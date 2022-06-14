@@ -24,31 +24,33 @@ if __name__=="__main__":
     print(">>> OPERACION COMPLETADA CON EXITO")
     print(f"SE ENCONTRARON {len(lista)} PALABRAS DE 5 LETRAS")
 
-aleatorio = random.choice(lista)
+    aleatorio = random.choice(lista)
+    
 
-palabra = input(">>> INTRODUCIR PALABRA DE 5 LETRAS:")
-
-
-size = min(len(palabra), len(aleatorio)) 
-
-for j in range(6): 
-    while palabra not in lista:
-        if str(palabra.strip) not in palabras: 
-            print("la palabra no existe")
-            palabra = input(">>> INTRODUCIR PALABRA DE 5 LETRAS:")
-        if len(str(palabra.strip)) != 5:
-            print("la palabra no tiene 5 letras")
-            palabra = input(">>> INTRODUCIR PALABRA DE 5 LETRAS:")
-        if str(palabra.strip).isalpha() == False :
-            print("caracter no valido")
-            palabra = input(">>> INTRODUCIR PALABRA DE 5 LETRAS:")
-    for i in range(size):
-        if palabra[i] == aleatorio[i]:
-            print(Fore.GREEN + palabra[i], end="")
-        elif palabra[i] in aleatorio:
-            print(Fore.YELLOW + palabra[i], end="")
-        else :
-            print(Fore.RED + palabra[i], end="") 
-    palabra = input("\n>>> INTRODUCIR PALABRA DE 5 LETRAS:")
+    palabra = input(">>> INTRODUCIR PALABRA DE 5 LETRAS:")
 
 
+    size = min(len(palabra), len(aleatorio)) 
+
+    for j in range(1, 6): 
+        while palabra not in lista:
+            if str(palabra.strip) not in palabras: 
+                print("la palabra no existe")
+            if len(str(palabra.strip)) != 5:
+                print("la palabra no tiene 5 letras") 
+            if str(palabra.strip).isalpha() == False :
+                print("caracter no valido")
+                palabra = input(">>> INTRODUCIR PALABRA DE 5 LETRAS:")
+        for i in range(size):
+            if palabra[i] == aleatorio[i]:
+                print(Fore.GREEN + palabra[i], end=" ")
+            elif palabra[i] in aleatorio:
+                print(Fore.YELLOW + palabra[i], end=" ")
+            else:
+                print(Fore.RED + palabra[i], end=" ") 
+        if palabra==aleatorio:
+            print("\n GANASTE!")
+            break
+         
+        palabra = input("\n>>> INTRODUCIR PALABRA DE 5 LETRAS:")
+        
