@@ -33,14 +33,14 @@ if __name__=="__main__":
     size = min(len(palabra), len(aleatorio)) 
 
     for j in range(1, 6): 
-        while palabra not in lista:
-            if str(palabra.strip) not in palabras: 
-                print("la palabra no existe")
-            if len(str(palabra.strip)) != 5:
-                print("la palabra no tiene 5 letras") 
-            if str(palabra.strip).isalpha() == False :
-                print("caracter no valido")
-                palabra = input(">>> INTRODUCIR PALABRA DE 5 LETRAS:")
+        while palabra not in lista: 
+            if palabra not in palabras: 
+                print("la palabra no existe. Por favor ingresa otra palabra")
+            elif len(palabra) != 5:
+                print("la palabra no tiene 5 lewfas. Por favor ingresa otra palabra") 
+            elif palabra.isalpha() == False :
+                print("La palabra contiene caracteres erroneos. Por favor ingresa otra palabra")
+            palabra = input(">>> INTRODUCIR PALABRA DE 5 LETRAS:")
         for i in range(size):
             if palabra[i] == aleatorio[i]:
                 print(Fore.GREEN + palabra[i], end=" ")
@@ -51,6 +51,8 @@ if __name__=="__main__":
         if palabra==aleatorio:
             print("\n GANASTE!")
             break
+        
          
         palabra = input("\n>>> INTRODUCIR PALABRA DE 5 LETRAS:")
         
+print(aleatorio)
