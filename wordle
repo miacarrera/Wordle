@@ -37,7 +37,7 @@ if __name__=="__main__":
             if palabra not in palabras: 
                 print("la palabra no existe. Por favor ingresa otra palabra")
             elif len(palabra) != 5:
-                print("la palabra no tiene 5 lewfas. Por favor ingresa otra palabra") 
+                print("la palabra no tiene 5 letras. Por favor ingresa otra palabra") 
             elif palabra.isalpha() == False :
                 print("La palabra contiene caracteres erroneos. Por favor ingresa otra palabra")
             palabra = input(">>> INTRODUCIR PALABRA DE 5 LETRAS:")
